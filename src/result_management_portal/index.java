@@ -6,7 +6,7 @@ package result_management_portal;
 
 /**
  *
- * @author user
+ * @author Neyna Nayak
  */
 public class index extends javax.swing.JFrame {
 

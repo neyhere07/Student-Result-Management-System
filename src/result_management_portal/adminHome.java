@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package result_management_portal;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 /**
  *
- * @author user
+ * @author Neyna Nayak
  */
 public class adminHome extends javax.swing.JFrame {
 

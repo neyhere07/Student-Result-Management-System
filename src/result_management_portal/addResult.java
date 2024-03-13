@@ -272,23 +272,31 @@ public class addResult extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/srms","root","Nayak#027");
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("select * from student where rollno = '"+roll+"'");
+            Connection con =DriverManager.getConnection("Jdbc:mysql://localhost:3306/srms","root","Nayak#027");
+            Statement st=con.createStatement();
+           // ResultSet  rs= st.executeQuery("select * from student where rollno= '"+roll+"' " );
+            String query = "select * from student where rollno= '" + roll + "'";
+            ResultSet rs = st.executeQuery(query);
+        if (rs.next()) {
+            String sql = "INSERT INTO RESULT (rollno, physics, maths, em, dbms, os) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, roll);
+            pstmt.setString(2, physics);
+            pstmt.setString(3, maths);
+            pstmt.setString(4, em);
+            pstmt.setString(5, dbms);
+            pstmt.setString(6, os);
 
-            if (rs.next()){
-                st.executeUpdate("insert into result(rollno, physics, maths, em, dbms, os) values('"+roll+"','"+physics+"','"+maths+"','"+em+"','"+dbms+"','"+os+"'"); 
-                JOptionPane.showMessageDialog(null,"Marks saved successfully");
-                setVisible(false);
-                new addResult().setVisible(true);
-        }
-            else{
-                JOptionPane.showMessageDialog(null,"This roll number is registered");
-            }
-        }
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null,e.toString());
-        
+            pstmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Marks saved successfully");
+            setVisible(false);
+            new addResult().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "This Roll Number is Not Registered");
+}
+       }catch(Exception e){
+
+    JOptionPane.showMessageDialog(null, e.toString());
     }   
     }//GEN-LAST:event_jButton1ActionPerformed
 

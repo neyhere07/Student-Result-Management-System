@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author Neyna Nayak
  */
 public class adminIndex extends javax.swing.JFrame {
 
@@ -68,11 +68,21 @@ public class adminIndex extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/result_management_portal/loginIcon.jpeg"))); // NOI18N
         jButton1.setText(" Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 120, 50));
 
         jButton2.setFont(new java.awt.Font("Sitka Heading", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/result_management_portal/backIcon.jpeg"))); // NOI18N
         jButton2.setText(" Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 130, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/result_management_portal/loginPage.jpg"))); // NOI18N
@@ -84,6 +94,16 @@ public class adminIndex extends javax.swing.JFrame {
 
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
+        
+    }//GEN-LAST:event_usernameActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         String Username = username.getText();
         String Password = password.getText();
         
@@ -94,11 +114,13 @@ public class adminIndex extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null,"Incorrect username or password");
         }
-    }//GEN-LAST:event_usernameActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
+        setVisible(false);
+        new index().setVisible(true); 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
